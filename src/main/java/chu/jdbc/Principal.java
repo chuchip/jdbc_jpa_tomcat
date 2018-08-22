@@ -1,5 +1,6 @@
 package chu.jdbc;
 
+import java.util.List;
 import java.util.Optional;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class Principal {
     ServletContext servletContext;
 
     @Autowired
-    Repositorio repositorio;
+    JdbcEjemplo repositorio;
 
     @Autowired
     UsuarioRepositorio usuRep;
@@ -37,7 +38,17 @@ public class Principal {
         return "jdbc";
 
     }
+    @RequestMapping(value = "/todosusuarios", method = RequestMethod.GET)
+    public String getJdbcTodosUsuarios(Model modelo) 
+    {
+        servletContext.log("En getJdbcTodosUsuarios ");
+        List<Usuario> listaUsuarios = repositorio.findAllUsernames();
+        modelo.addAttribute("listadeUsuarios",listaUsuarios);
+        servletContext.log("Numero de  usuarios: " + listaUsuarios.size());
+        return "jdbcTodosUsuarios";
 
+    }
+    
     @RequestMapping(value = "/jpa", method = RequestMethod.GET)
     public ModelAndView getJPA(HttpServletRequest request) {
         servletContext.log("En JPA jsp");

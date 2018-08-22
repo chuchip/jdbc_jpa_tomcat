@@ -12,20 +12,21 @@ import javax.persistence.UniqueConstraint;
  * @author chuchip
  */
 @Entity
-@Table(name="usuario", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"login"})})
-public class Usuario implements Serializable  {
-    
+@Table(name = "usuario",
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = {"login"})})
+public class Usuario implements Serializable {
+
     @Id
     String login;
-    
+
     @Column
     String nombre;
 
-    public Usuario()
-    {
-                  
+    public Usuario() {
+
     }
+
     public String getLogin() {
         return login;
     }
@@ -41,9 +42,9 @@ public class Usuario implements Serializable  {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Usuario(String usuNomb,String usuNomco)
-    {
-        this.login=usuNomb;
-        this.nombre=usuNomco;
+
+    public Usuario(String login, String nombre) {
+        this.login = login;
+        this.nombre = nombre;
     }
 }

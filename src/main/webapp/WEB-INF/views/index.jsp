@@ -9,7 +9,8 @@
     </head>
 
     <body>        
-        <p><A href="jdbc">Conectar por JDBC Template </a></p>
+        <p><A href="jdbc">Recoger un Usuario JDBC Template </a></p>
+        <p><A href="todosusuarios">Recoger Todos los Usuarios con JDBC Template </a></p>        
         <p><A href="jpa">Conectar usando JPA + Hibernate </a></p>
     </body>
 </html>
