@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Recogiendo TODOS los  usuarios usando JDBC</h1>
-        <h2>Estos son los usuarios</h2>
+        <h2>Estos son TODOS los usuarios</h2>
         <table border="1">
             <tr>
             <th>Usuario</th>   

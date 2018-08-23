@@ -27,17 +27,21 @@ public class JdbcEjemplo {
         return new JdbcTemplate(dataSource);
     }
 
-    public Usuario findByUsername(String username) {
+    public Usuario findByUsername(String username) {        
         return jdbc.queryForObject(
                 "select login,nombre from usuario where login=?",
-                new usuarioRowMapper(),
-                username);
+                new usuarioRowMapper(), username);
     }
     
     public List<Usuario> findAllUsernames() {
-        return jdbc.queryForObject(
+         return  jdbc.query(
                 "select login,nombre from usuario ",
-                new usuarioListaRowMapper() );
+                (rs, rowNum) -> new Usuario(rs.getString("login"),rs.getString("nombre"))
+        );
+        
+//        return jdbc.queryForObject(
+//                "select login,nombre from usuario ",
+//                new usuarioListaRowMapper() );
     }
     private class usuarioRowMapper implements RowMapper<Usuario> {
 
@@ -48,6 +52,7 @@ public class JdbcEjemplo {
                     rs.getString("nombre"));
         }
     }
+    /*
    private  class usuarioListaRowMapper implements RowMapper<List<Usuario>> {
 
         @Override
@@ -62,4 +67,5 @@ public class JdbcEjemplo {
             return listaUsuarios;
         }
     }
+*/
 }
