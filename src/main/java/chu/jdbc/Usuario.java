@@ -1,16 +1,19 @@
 package chu.jdbc;
 
+/**
+ *
+ * @author chuchip
+ */
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import lombok.Data;
 
-/**
- *
- * @author chuchip
- */
+
+@Data
 @Entity
 @Table(name = "usuario",
         uniqueConstraints = {
@@ -22,28 +25,9 @@ public class Usuario implements Serializable {
 
     @Column
     String nombre;
-
-    public Usuario() {
-
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+    public Usuario() {}
     public Usuario(String login, String nombre) {
+        
         this.login = login;
         this.nombre = nombre;
     }

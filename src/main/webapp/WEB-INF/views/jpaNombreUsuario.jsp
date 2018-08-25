@@ -9,17 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JDBC TODOS USUARIOS</title>
+        <title>JPA BUSCAR POR NOMBRE USUARIO</title>
     </head>
     <body>
-        <h1>Recogiendo TODOS los  usuarios usando JDBC</h1>
-        <h2>Estos son TODOS los usuarios</h2>
+        <h1>Recogiendo Usuarios con nombre como ${nombreUsuario} </h1>
+        <h2>Estos son los usuarios</h2>
         <table border="1">
             <tr>
             <th>Usuario</th>   
             <th>Nombre</th>   
             </tr>
-            <c:forEach var="usuario" items="${listadeUsuarios}">
+            <c:forEach var="usuario" items="${listaNombres}">
                 <tr>
                     <td>${usuario.login}</td>
                     <td>${usuario.nombre}</td>

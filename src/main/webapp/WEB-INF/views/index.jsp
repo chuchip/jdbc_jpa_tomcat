@@ -12,5 +12,11 @@
         <p><A href="jdbc">Recoger un Usuario JDBC Template </a></p>
         <p><A href="todosusuarios">Recoger Todos los Usuarios con JDBC Template </a></p>        
         <p><A href="jpa">Conectar usando JPA + Hibernate </a></p>
+        <p>Buscar por nombre de usuario<br/>
+        <form action="todosPorNombre">
+            <input type="text" name="nombre" value="profe">
+            <input type="submit" value="Aceptar">
+        </form>
+        </p>
     </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -43,10 +44,21 @@ public class Principal {
     {
         servletContext.log("En getJdbcTodosUsuarios ");
         List<Usuario> listaUsuarios = repositorio.findAllUsernames();
-        modelo.addAttribute("listadeUsuarios",listaUsuarios);
-        servletContext.log("Numero de  usuarios: " + listaUsuarios.size());
+        modelo.addAttribute("listadeUsuarios",listaUsuarios);        
+        servletContext.log("Numero de  usuarios: " + listaUsuarios.size());                   
         return "jdbcTodosUsuarios";
-
+    }
+    
+    @RequestMapping(value = "/todosPorNombre")
+    public String getJPAUsuariosPorNombre(Model modelo,@RequestParam("nombre") String nombre) 
+    {
+        servletContext.log("En getJPAUsuariosPorNombre. Nombre pasado: "+nombre);
+       // List<Usuario>  listaNombres = usuRep.buscaPorNombre(nombre);
+        List<Usuario>  listaNombres = usuRep.findIsLikeNombreOrderByNombre(nombre);
+        modelo.addAttribute("listaNombres",listaNombres);
+        modelo.addAttribute("nombreUsuario",nombre);
+        servletContext.log("Numero de  Nombres: " + listaNombres.size());          
+        return "jpaNombreUsuario";
     }
     
     @RequestMapping(value = "/jpa", method = RequestMethod.GET)
