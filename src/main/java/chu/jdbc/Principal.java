@@ -54,7 +54,7 @@ public class Principal {
     {
         servletContext.log("En getJPAUsuariosPorNombre. Nombre pasado: "+nombre);
        // List<Usuario>  listaNombres = usuRep.buscaPorNombre(nombre);
-        List<Usuario>  listaNombres = usuRep.findIsLikeNombreOrderByNombre(nombre);
+        List<Usuario>  listaNombres = usuRep.findByNombreLikeOrderByNombre(nombre);
         modelo.addAttribute("listaNombres",listaNombres);
         modelo.addAttribute("nombreUsuario",nombre);
         servletContext.log("Numero de  Nombres: " + listaNombres.size());          

@@ -25,5 +25,5 @@ public interface UsuarioRepositorio extends CrudRepository<Usuario, String> {
      * @param nombre Nombre de usuario a buscar (sin wildcards, ya lo pone JPL)
      * @return Lista de Usuarios a buscar
      */
-    List<Usuario> findIsLikeNombreOrderByNombre(String nombre);
+    List<Usuario> findByNombreLikeOrderByNombre(String nombre);
 }
